@@ -11,7 +11,12 @@ UDP Service for Project Cars built in NodeJS.
 
 # listener.js (skipped)
 ## Tests
-TODO: Remove util after testing
-1. [ ] address() checks for ip
-2. [ ] address() checks for port
+1. [X] address() checks for ip
+2. [X] address() checks for port
 3. [ ] test message receipt
+  a. learn how to mock message
+
+## Questions
+1. In "test-listener.js" the second it() in describe("listener module"), the
+   assert is not wrapped in a promise. Will the it#1 and it#2 always work in
+   order as desired?
