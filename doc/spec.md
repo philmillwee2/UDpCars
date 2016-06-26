@@ -9,7 +9,9 @@ UDP Service for Project Cars built in NodeJS.
 
 ![alt tag](https://raw.githubusercontent.com/philmillwee2/UDpCars/dev/doc/Pipeline.png)
 
-# listener.js
+# listener.js (skipped)
 ## Tests
-1. [ ] address() checks for ip and port
-2. [ ] test message receipt
+TODO: Remove util after testing
+1. [ ] address() checks for ip
+2. [ ] address() checks for port
+3. [ ] test message receipt

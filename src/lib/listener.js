@@ -2,12 +2,38 @@
 
 const dgram = require("dgram");
 
-module.exports = {
-  listener: function() {
-    const server = dgram.createSocket("udp4");
+function listener() {
+  const server = dgram.createSocket("udp4");
 
-    server.bind(5606);
+  console.log("AAAA");
 
-    return server;
+  server.on("message", function(clientMsg, clientHost) {
+    console.log("Messsage received");
+  });
+
+  console.log("BBBB");
+
+  server.on("listening", function() {
+    console.log("EEEE");
+    const properties = server.address();
+    console.log("Service started and listening on "
+      + properties.address + ":" + properties.port);
+    console.log("FFFF");
+  });
+
+  console.log("CCCC");
+
+  server.bind(5606);
+
+  console.log("DDDD");
+
+  if(server) {
+    const properties = server.address();
   }
+
+  return server;
+};
+
+module.exports = {
+  listener: listener
 };
