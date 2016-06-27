@@ -2,11 +2,18 @@
 
 const {join} = require("path");
 const {assert} = require("chai");
+const dgram = require("dgram");
 
 const {listener} = require(join(__dirname, "../lib/listener"));
 
+function processMessage(clientMsg) {
+  console.log("foo");
+  queue.push(clientMsg.toString());
+}
+
 describe("listener module", function() {
-  let server = listener();
+  const server = listener(processMessage);
+  let queue = [];
 
   it("should return 0.0.0.0 for server address", function() {
     return new Promise(function(done) {
@@ -21,7 +28,17 @@ describe("listener module", function() {
     assert.equal(properties.port, 5606);
   });
 
-  xit("should return a valid message", function() {
-    assert.equal(message, "This is a valid message");
+  it("should return a valid message", function() {
+    const client = dgram.createSocket("udp4");
+
+    client.send(Buffer.from("This is a valid message"),
+      5606, "localhost", function(err) {
+        return new Promise(function(done) {
+          server.on("message", function() {
+            // assert.equal(queue.pop(), "This is a valid message");
+            done();
+          });
+        });
+      });
   });
 });

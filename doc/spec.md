@@ -14,7 +14,7 @@ UDP Service for Project Cars built in NodeJS.
 1. [X] address() checks for ip
 2. [X] address() checks for port
 3. [ ] test message receipt
-  a. learn how to mock message
+  a. learn how to mock message (maybe not)
 
 ## Questions
 1. In "test-listener.js" the second it() in describe("listener module"), the

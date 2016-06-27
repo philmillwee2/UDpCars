@@ -2,11 +2,15 @@
 
 const dgram = require("dgram");
 
-function listener() {
+function listener(processMessage) {
   const server = dgram.createSocket("udp4");
 
   server.on("message", function(clientMsg, clientHost) {
-    console.log("Messsage received");
+    if(typeof(processMessage) === "function") {
+      processMessage(clientMsg);
+    } else {
+      server.close();
+    }
   });
 
   server.on("listening", function() {
