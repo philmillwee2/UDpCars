@@ -16,16 +16,15 @@ describe("listener module", function() {
   }
 
 
-  it("should return 0.0.0.0 for server address", function() {
-    return new Promise(function(done) {
-      const properties = server.address();
-      assert.equal(properties.address, "0.0.0.0");
-      done();
-    });
+  it("should return 0.0.0.0 for server address", function(done) {
+    const properties = server.address();
+    assert.equal(properties.address, "0.0.0.0");
+    done();
   });
 
   it("should return 5606 for server port", function() {
     const properties = server.address();
+
     assert.equal(properties.port, 5606);
   });
 
@@ -34,11 +33,9 @@ describe("listener module", function() {
 
     client.send(Buffer.from("This is a valid message"),
       5606, "localhost", function(err) {
-        return new Promise(function() {
-          server.on("message", function() {
-            assert.equal(queue.shift(), "This is a valid message");
-            done();
-          });
+        server.on("message", function() {
+          assert.equal(queue.shift(), "This is a valid message");
+          done();
         });
       });
   });
