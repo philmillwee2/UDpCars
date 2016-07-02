@@ -1,0 +1,20 @@
+{
+  "name": "UDpCars",
+  "version": "0.0.0",
+  "description": "UDP Service for Project Cars built in NodeJS.",
+  "author": "Phillip Millwee II",
+  "license": "MIT",
+  "engines": {
+    "node": "^6.2.0"
+  },
+  "scripts": {
+    "lint": "eslint --fix .",
+    "test": "npm run lint && npm run test-src",
+    "test-src": "mocha --recursive src/test"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.13.1",
+    "mocha": "^2.5.3"
+  }
+}
