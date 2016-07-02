@@ -11,7 +11,7 @@ UDP Service for Project Cars built in NodeJS.
 
 # listener.js
 ## Goals
-1. Refactor code for better use of callbacks
+1. [X] Remove unnecessary promises and use done callbacks for mocha
 
 ## Tests
 1. [X] address() checks for ip
