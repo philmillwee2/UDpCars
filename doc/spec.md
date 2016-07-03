@@ -9,12 +9,17 @@ UDP Service for Project Cars built in NodeJS.
 
 ![alt tag](https://raw.githubusercontent.com/philmillwee2/UDpCars/dev/doc/Pipeline.png)
 
-# listener.js
-## Goals
-1. [X] Remove unnecessary promises and use done callbacks for mocha
+# Server module
 
 ## Tests
-1. [X] address() checks for ip
-2. [X] address() checks for port
-3. [X] test message receipt
+### Server state checks
+1.[ ] server is started (status === true)
+2.[ ] server ip is 0.0.0.0
+3.[ ] server port is 5606
 
+### dgram checks
+1.[ ] server is receiving messages as expected
+
+### Server teardown
+1.[ ] server is stopped (status === false)
+  * need to investigate test beforeEach/afterEach to setup test correctly
