@@ -9,43 +9,36 @@ let server = {
   packetQueue: []
 };
 
-function start(callback) {
-  server.socket.on("listening", function() {
-    if (global.testing === undefined) {
-      console.log("[UDpCars] Service starting");
-    }
-  });
-
-  server.socket.on("close", function() {
-    if (global.testing === undefined) {
-      console.log("[UDpCars] Service stopping");
-    }
-  });
-
-  server.socket.bind(5606, function() {
-    if (global.testing === undefined) {
-      console.log("[UDpCars] Service started successfully");
-    }
-  });
-
+function start(server, callback) {
+  server.socket.bind(5606);
   callback(true);
 }
 
-function stop(callback) {
-  server.socket.close(function() {
-    if (global.testing === undefined) {
-      console.log("[UDpCars] Service stopped successfully");
-    }
-  });
+function stop(server, callback) {
+  server.socket.close();
   callback(false);
 }
 
-start(function(status) {
+server.socket.on("listening", function() {
+  if (global.testing === undefined) {
+    console.log("[UDpCars] Service started successfully");
+  }
+});
+
+server.socket.on("close", function() {
+  if (global.testing === undefined) {
+    console.log("[UDpCars] Service stopped successfully");
+  }
+});
+
+start(server, function(status) {
+  console.log("[UDpCars] Service starting");
   server.status = status;
 });
 
 process.on("SIGINT", function() {
-  stop(function(status) {
+  stop(server, function(status) {
+    console.log("[UDpCars] Service stopping");
     server.status = status;
   });
 });
