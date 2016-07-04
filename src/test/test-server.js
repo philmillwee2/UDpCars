@@ -3,8 +3,6 @@
 const {join} = require("path");
 const {expect} = require("chai");
 
-global.testing = true;
-
 describe("server module", function() {
   describe("server state", function() {
     xit("should have a server status of true", function(done) {

@@ -1,27 +1,17 @@
 "use strict";
 
 const {join} = require("path");
-const {createSocket} = require("dgram");
-const {start, stop} = require(join(__dirname, "src/lib/socket"));
+const {createListener} = require(join(__dirname, "src/lib/listener"));
 
-let server = {
-  status: false,
-  socket: createSocket("udp4"),
-  messageQueue: [],
-  packetQueue: []
-};
+const server = createListener();
 
-start(server, function() {
-  if (global.testing === undefined) {
-    console.log("* [UDpCars] Service starting");
-  }
+server.start(function() {
+  console.log("Service started successfully");
 });
 
 process.on("SIGINT", function() {
-  console.log("\n");
-  stop(server, function() {
-    if (global.testing === undefined) {
-      console.log("* [UDpCars] Service stopping");
-    }
+  console.log();
+  server.stop(function() {
+    console.log("Service stopped successfully");
   });
 });
