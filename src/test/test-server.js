@@ -3,14 +3,17 @@
 const {join} = require("path");
 const {expect} = require("chai");
 
+const {createListener} = require(join(__dirname, "../lib/listener"));
+
 describe("server module", function() {
   describe("server state", function() {
-    xit("should have a server status of true", function(done) {
-      expect(server.status).to.be.true;
+    xit("should have a correct bind state (1)", function(done) {
+      expect(server.socket).to.have.property("_bindState")
+        .and.to.equal(1);
       done();
     });
 
-    xit("should have been bound to address 0.0.0.0", function(done) {
+    xit("should have a correct address (0.0.0.0)", function(done) {
       expect(properties.address).to.equal("0.0.0.0");
       done();
     });
