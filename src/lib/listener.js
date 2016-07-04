@@ -1,7 +1,6 @@
 "use strict";
 
 const {createSocket} = require("dgram");
-const {inspect} = require("util");
 
 function start(callback) {
   this.socket.bind(5606);
