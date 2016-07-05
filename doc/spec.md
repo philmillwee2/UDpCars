@@ -9,10 +9,6 @@ UDP Service for Project Cars built in NodeJS.
 
 ![alt tag](https://raw.githubusercontent.com/philmillwee2/UDpCars/dev/doc/Pipeline.png)
 
-# Thoughts
-1. Split out the specific socket events into units (moved to separate file)
-2. Maybe focus on the units once things have been broken apart
-
 # Server module
 ## Tests
 ### Server state checks
@@ -26,3 +22,8 @@ UDP Service for Project Cars built in NodeJS.
 ### Server teardown
 1.[ ] server is stopped (status === false)
   * need to investigate test beforeEach/afterEach to setup test correctly
+
+# Backend Development
+## Tasks
+1. Docker environment for elasticsearch backend
+2. Kibana dashboard for basic display and testing
