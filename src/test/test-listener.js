@@ -5,8 +5,8 @@ const {expect} = require("chai");
 
 const {createListener} = require(join(__dirname, "../lib/listener"));
 
-describe("server module", function() {
-  describe("server state", function() {
+describe("listener module", function() {
+  describe("socket state", function() {
     xit("should have a correct bind state (1)", function(done) {
       expect(server.socket).to.have.property("_bindState")
         .and.to.equal(1);
@@ -24,14 +24,14 @@ describe("server module", function() {
     });
   });
 
-  describe("udp socket", function() {
+  describe("message events", function() {
     xit("should receive a message", function(done) {
       expect(server.messageQueue.length).to.have.length(1);
       done();
     });
   });
 
-  describe("server teardown", function() {
+  describe("socket teardown", function() {
     xit("should have a server status of false after teardown", function(done) {
       expect(server.status).to.be.false;
       done();
