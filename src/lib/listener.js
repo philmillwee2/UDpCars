@@ -3,13 +3,11 @@
 const {createSocket} = require("dgram");
 
 function start(callback) {
-  this.socket.bind(5606);
-  callback();
+  this.socket.bind(5606, callback);
 }
 
 function stop(callback) {
-  this.socket.close();
-  callback();
+  this.socket.close(callback);
 }
 
 function createListener() {

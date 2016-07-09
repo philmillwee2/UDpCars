@@ -15,10 +15,3 @@ server.socket.on("message", function(clientMsg, clientHost) {
   console.log(packet.sBuildVersion, packet.sequenceNumber,
     packet.sPacketType, packet.payload);
 });
-
-process.on("SIGINT", function() {
-  console.log();
-  server.stop(function() {
-    console.log("Service stopped successfully");
-  });
-});

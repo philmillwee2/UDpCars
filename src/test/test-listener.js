@@ -7,20 +7,34 @@ const {createListener} = require(join(__dirname, "../lib/listener"));
 
 describe("listener module", function() {
   describe("socket state", function() {
-    xit("should have a correct bind state (1)", function(done) {
-      expect(server.socket).to.have.property("_bindState")
-        .and.to.equal(1);
+    let listener, properties;
+
+    beforeEach(function(done) {
+      listener = createListener();
+      listener.start(done);
+    });
+
+    it("should be in 'BOUND' state (2)", function(done) {
+      expect(listener.socket).to.have.property("_bindState")
+        .and.to.equal(2);
       done();
     });
 
-    xit("should have a correct address (0.0.0.0)", function(done) {
+    it("should have a correct address (0.0.0.0)", function(done) {
+      properties = listener.socket.address();
       expect(properties.address).to.equal("0.0.0.0");
       done();
     });
 
-    xit("should have been bound to port 5606", function(done) {
+    it("should have been bound to port 5606", function(done) {
+      properties = listener.socket.address();
       expect(properties.port).to.equal(5606);
       done();
+    });
+
+    afterEach(function(done) {
+      listener.stop(done);
+      listener, properties = {};
     });
   });
 
