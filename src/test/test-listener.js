@@ -46,8 +46,9 @@ describe("listener module", function() {
   });
 
   describe("socket teardown", function() {
-    xit("should have a server status of false after teardown", function(done) {
-      expect(server.status).to.be.false;
+    xit("should be in 'BOUND' state (0)", function(done) {
+      expect(listener.socket).to.have.property("_bindState")
+        .and.to.equal(0);
       done();
     });
   });
