@@ -14,22 +14,19 @@ describe("listener module", function() {
       listener.start(done);
     });
 
-    it("should be in 'BOUND' state (2)", function(done) {
+    it("should be in 'BOUND' state (2)", function() {
       expect(listener.socket).to.have.property("_bindState")
         .and.to.equal(2);
-      done();
     });
 
-    it("should have a correct address (0.0.0.0)", function(done) {
+    it("should have a correct address (0.0.0.0)", function() {
       properties = listener.socket.address();
       expect(properties.address).to.equal("0.0.0.0");
-      done();
     });
 
-    it("should have been bound to port 5606", function(done) {
+    it("should have been bound to port 5606", function() {
       properties = listener.socket.address();
       expect(properties.port).to.equal(5606);
-      done();
     });
 
     afterEach(function(done) {
@@ -46,10 +43,18 @@ describe("listener module", function() {
   });
 
   describe("socket teardown", function() {
-    xit("should be in 'BOUND' state (0)", function(done) {
-      expect(listener.socket).to.have.property("_bindState")
-        .and.to.equal(0);
-      done();
+    let listener = {};
+
+    before(function(done) {
+      listener = createListener();
+      listener.start(function() {
+        listener.stop(done);
+      });
+    });
+
+    it("should have a 'null' handle", function() {
+      expect(listener.socket).to.have.property("_handle")
+        .and.to.be.null;
     });
   });
 });
