@@ -17,7 +17,7 @@ UDP Service for Project Cars built in NodeJS.
 3.[X] socket port is 5606
 
 ### message checks
-1.[ ] server is receiving messages as expected
+1.[X] server is receiving messages as expected
 
 ### socket teardown
 1.[X] socket _bindState is 0
