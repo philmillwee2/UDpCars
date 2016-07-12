@@ -1,11 +1,11 @@
 {
   "name": "UDpCars",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "UDP Service for Project Cars built in NodeJS.",
   "author": "Phillip Millwee II",
   "license": "MIT",
   "engines": {
-    "node": "^6.2.0"
+    "node": "^6.*"
   },
   "scripts": {
     "lint": "eslint --fix .",
