@@ -9,12 +9,21 @@ UDP Service for Project Cars built in NodeJS.
 
 ![alt tag](https://raw.githubusercontent.com/philmillwee2/UDpCars/dev/doc/Pipeline.png)
 
-# listener.js
-## Goals
-1. [X] Remove unnecessary promises and use done callbacks for mocha
-
+# listener module
 ## Tests
-1. [X] address() checks for ip
-2. [X] address() checks for port
-3. [X] test message receipt
+### socket state checks
+1.[X] socket _bindState is 2
+2.[X] socket address is 0.0.0.0
+3.[X] socket port is 5606
 
+### message checks
+1.[X] server is receiving messages as expected
+
+### socket teardown
+1.[X] socket _bindState is 0
+  * need to investigate test beforeEach/afterEach to setup test correctly
+
+# Backend Development
+## Tasks
+1. Docker environment for elasticsearch backend
+2. Kibana dashboard for basic display and testing

@@ -1,29 +1,27 @@
 "use strict";
 
-const dgram = require("dgram");
+const {createSocket} = require("dgram");
 
-function listener(processMessage) {
-  const server = dgram.createSocket("udp4");
+function start(callback) {
+  this.socket.bind(5606, callback);
+}
 
-  server.on("message", function(clientMsg, clientHost) {
-    if(typeof(processMessage) === "function") {
-      processMessage(clientMsg);
-    } else {
-      server.close();
-    }
-  });
+function stop(callback) {
+  this.socket.close(callback);
+}
 
-  server.on("listening", function() {
-    const properties = server.address();
-    console.log("Service started and listening on "
-      + properties.address + ":" + properties.port);
-  });
+function createListener() {
+  let listener = {
+    socket: createSocket("udp4"),
+    messageQueue: [],
+    packetQueue: [],
+    start: start,
+    stop: stop
+  };
 
-  server.bind(5606);
-
-  return server;
-};
+  return listener;
+}
 
 module.exports = {
-  listener: listener
+  createListener: createListener
 };
