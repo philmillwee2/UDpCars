@@ -15,17 +15,16 @@ describe("listener module", function() {
     });
 
     it("should be in 'BOUND' state (2)", function() {
-      expect(listener.socket).to.have.property("_bindState").and.to.equal(2);
+      expect(listener.socket).to.have.property("_bindState", 2);
     });
 
     it("should have a correct address (0.0.0.0)", function() {
       properties = listener.socket.address();
-      expect(properties).have.property("address").and.to.equal("0.0.0.0");
+      expect(properties).have.property("address", "0.0.0.0");
     });
 
     it("should have been bound to port 5606", function() {
       properties = listener.socket.address();
-      expect(properties).to.have.property("port").and.to.equal(5606);
     });
 
     afterEach(function(done) {
@@ -54,7 +53,7 @@ describe("listener module", function() {
     });
 
     it("should receive a message", function() {
-      expect(listener).to.have.property("messageQueue").and.to.have.length(1);
+      expect(listener).to.have.property("messageQueue").with.length(1);
     });
 
     after(function(done) {
@@ -74,7 +73,7 @@ describe("listener module", function() {
     });
 
     it("should have a 'null' handle", function() {
-      expect(listener.socket).to.have.property("_handle").and.to.be.null;
+      expect(listener.socket).to.have.property("_handle", null);
     });
   });
 });
