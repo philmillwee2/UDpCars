@@ -29,16 +29,19 @@ UDP Service for Project Cars built in NodeJS.
 ## Note on levels
 UDP Packets will consist of "packed" data types. This means that a certain level of decomposition will need to take place after the data types have been decoded initially. Decomposition consists of logical operations and bit manipulation.
 
-* Level 1 - data type extraction from buffer
-* Level 2 - decomposition of data type into atomic values
+* Stage-1 - data type extraction from buffer
+* Stage-2 - decomposition of data type into atomic values
 
 ## Goals
 1. Take a peek at the packet
-2. Lookup packet definition based on type, seen in peek
-3. Decode packet (1st level only) and place it on the packetQueue
+2. Lookup packet definition based on type, seen in sneak(peek)
+  * [ ] Refactor sneak function to use callbacks instead of returns
+3. Decode packet (Stage-1 only) and create data structure
+4. Decode Stage-2 into JSON document
 
 ## module
-### Tests (TBD)
+### Tests
+1. [X] Verify "Stage-1" decode
 
 # Backend Development
 ## Tasks
