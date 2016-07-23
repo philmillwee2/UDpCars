@@ -2,26 +2,43 @@
 
 UDP Service for Project Cars built in NodeJS.
 
-# Goals
+# Listener Prototype
+
+## Goals
 1. Create a listening service for pCars
 2. Receive packets from pCars into an input queue
 3. Process input queue into output queue
 
 ![alt tag](https://raw.githubusercontent.com/philmillwee2/UDpCars/dev/doc/Pipeline.png)
 
-# listener module
-## Tests
-### socket state checks
+## module
+### Tests
+#### socket state checks
 1.[X] socket _bindState is 2
 2.[X] socket address is 0.0.0.0
 3.[X] socket port is 5606
 
-### message checks
+#### message checks
 1.[X] server is receiving messages as expected
 
-### socket teardown
+#### socket teardown
 1.[X] socket _bindState is 0
-  * need to investigate test beforeEach/afterEach to setup test correctly
+
+# Packet Prototype
+
+## Note on levels
+UDP Packets will consist of "packed" data types. This means that a certain level of decomposition will need to take place after the data types have been decoded initially. Decomposition consists of logical operations and bit manipulation.
+
+* Level 1 - data type extraction from buffer
+* Level 2 - decomposition of data type into atomic values
+
+## Goals
+1. Take a peek at the packet
+2. Lookup packet definition based on type, seen in peek
+3. Decode packet (1st level only) and place it on the packetQueue
+
+## module
+### Tests (TBD)
 
 # Backend Development
 ## Tasks
