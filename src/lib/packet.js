@@ -21,38 +21,38 @@ let Packet = {
 
         // Event information
         sLapsInEvent: peek.payload.readUInt8(11),
-      }
 
         // Timings
-        //sBestLapTime: peek.payload.readFloatLE(12),
-        //sLastLapTime: peek.payload.readFloatLE(16),
-        //sCurrentTime: peek.payload.readFloatLE(20),
-        //sSplitTimeAhead: peek.payload.readFloatLE(24),
-        //sSplitTimeBehind: peek.payload.readFloatLE(28),
-        //sSplitTime: peek.payload.readFloatLE(32),
-        //sEventTimeRemaining: peek.payload.readFloatLE(36),
-        //sPersonalFastestLapTime: peek.payload.readFloatLE(40),
-        //sWorldFastestLapTime: peek.payload.readFloatLE(44),
-        //sCurrentSector1Time: peek.payload.readFloatLE(48),
-        //sCurrentSector2Time: peek.payload.readFloatLE(52),
-        //sCurrentSector3Time: peek.payload.readFloatLE(56),
-        //sFastestSector1Time: peek.payload.readFloatLE(60),
-        //sFastestSector2Time: peek.payload.readFloatLE(64),
-        //sFastestSector3Time: peek.payload.readFloatLE(68),
-        //sPersonalFastestSector1Time: peek.payload.readFloatLE(72),
-        //sPersonalFastestSector2Time: peek.payload.readFloatLE(76),
-        //sPersonalFastestSector3Time: peek.payload.readFloatLE(80),
-        //sWorldFastestSector1Time: peek.payload.readFloatLE(84),
-        //sWorldFastestSector2Time: peek.payload.readFloatLE(88),
-        //sWorldFastestSector3Time: peek.payload.readFloatLE(92),
+        sBestLapTime: peek.payload.readFloatLE(12),
+        sLastLapTime: peek.payload.readFloatLE(16),
+        sCurrentTime: peek.payload.readFloatLE(20),
+        sSplitTimeAhead: peek.payload.readFloatLE(24),
+        sSplitTimeBehind: peek.payload.readFloatLE(28),
+        sSplitTime: peek.payload.readFloatLE(32),
+        sEventTimeRemaining: peek.payload.readFloatLE(36),
+        sPersonalFastestLapTime: peek.payload.readFloatLE(40),
+        sWorldFastestLapTime: peek.payload.readFloatLE(44),
+        sCurrentSector1Time: peek.payload.readFloatLE(48),
+        sCurrentSector2Time: peek.payload.readFloatLE(52),
+        sCurrentSector3Time: peek.payload.readFloatLE(56),
+        sFastestSector1Time: peek.payload.readFloatLE(60),
+        sFastestSector2Time: peek.payload.readFloatLE(64),
+        sFastestSector3Time: peek.payload.readFloatLE(68),
+        sPersonalFastestSector1Time: peek.payload.readFloatLE(72),
+        sPersonalFastestSector2Time: peek.payload.readFloatLE(76),
+        sPersonalFastestSector3Time: peek.payload.readFloatLE(80),
+        sWorldFastestSector1Time: peek.payload.readFloatLE(84),
+        sWorldFastestSector2Time: peek.payload.readFloatLE(88),
+        sWorldFastestSector3Time: peek.payload.readFloatLE(92),
 
-        //sJoyPad: peek.payload.readUInt16LE(96),
+        sJoyPad: peek.payload.readUInt16LE(96),
 
         // Flags
-        //sHighestFlag: peek.payload.readUInt8(98),
+        sHighestFlag: peek.payload.readUInt8(98),
 
         // Pit info
-        //sPitModeSchedule: peek.payload.readUInt8(99),
+        sPitModeSchedule: peek.payload.readUInt8(99),
+      }
 
         // Car state
         //sOilTempCelsius: peek.payload.readInt16LE(100),
