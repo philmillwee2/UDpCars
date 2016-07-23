@@ -1,8 +1,8 @@
 "use strict";
 
 let Packet = {
-  "0": function(peek) {
-    return {
+  "0": function(peek, callback) {
+    callback({
       header: peek.header,
       data: {
         // Unfiltered input
@@ -27,13 +27,13 @@ let Packet = {
         sFastestSector2Time: peek.payload.readFloatLE(64),
         sFastestSector3Time: peek.payload.readFloatLE(68)
       }
-    };
+    });
   },
-  "1": function() {
-    return null;
+  "1": function(peek, callback) {
+    callback({ header: peek.header, data: null });
   },
-  "2": function() {
-    return null;
+  "2": function(peek, callback) {
+    callback({ header: peek.header, data: null });
   }
 };
 
@@ -47,7 +47,7 @@ function sneak (content, callback) {
     payload: content
   };
 
-  callback(Packet[peek.header.sPacketType](peek));
+  Packet[peek.header.sPacketType](peek, callback);
 }
 
 module.exports = {
