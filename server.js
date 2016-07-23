@@ -20,5 +20,7 @@ server.start(function() {
 });
 
 server.socket.on("message", function(clientMsg, clientHost) {
-  console.log(clientMsg);
+  sneak(clientMsg, function(packet) {
+    console.log(inspect(packet));
+  });
 });
