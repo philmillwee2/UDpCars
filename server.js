@@ -2,7 +2,7 @@
 
 const {join} = require("path");
 const {createListener} = require(join(__dirname, "src/lib/listener"));
-const {peek} = require(join(__dirname, "src/lib/packet"));
+const {sneak} = require(join(__dirname, "src/lib/packet"));
 
 // Development inspection: Remove before tagging
 const {inspect} = require("util");
@@ -20,5 +20,5 @@ server.start(function() {
 });
 
 server.socket.on("message", function(clientMsg, clientHost) {
-  console.log(inspect(peek(clientMsg)));
+  console.log(inspect(sneak(clientMsg)));
 });
