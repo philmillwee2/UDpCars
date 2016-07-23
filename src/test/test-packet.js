@@ -17,14 +17,6 @@ describe("packet module", function() {
       it("should have an sPacketType of 0", function() {
         expect(testPacket.header.sPacketType).to.equal(0);
       });
-
-      it("should have an sViewedParticipantIndex of 0", function() {
-        expect(testPacket.data.sViewedParticipantIndex).to.equal(0);
-      });
-
-      it("should have an sNumParticipants of 21", function() {
-        expect(testPacket.data.sNumParticipants).to.equal(21);
-      });
     });
   });
 });
