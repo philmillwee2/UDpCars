@@ -37,7 +37,7 @@ let Packet = {
   }
 };
 
-function sneak (content) {
+function sneak (content, callback) {
   let peek = {
     header: {
       sBuildVersion: content.readUInt16LE(0),
@@ -47,7 +47,7 @@ function sneak (content) {
     payload: content
   };
 
-  return Packet[peek.header.sPacketType](peek);
+  callback(Packet[peek.header.sPacketType](peek));
 }
 
 module.exports = {
