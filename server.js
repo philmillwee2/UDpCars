@@ -4,9 +4,6 @@ const {join} = require("path");
 const {createListener} = require(join(__dirname, "src/lib/listener"));
 const {sneak} = require(join(__dirname, "src/lib/packet"));
 
-// Development inspection: Remove before tagging
-const {inspect} = require("util");
-
 const server = createListener();
 
 server.socket.on("listening", function() {
@@ -19,6 +16,10 @@ server.start(function() {
   console.log("Service started successfully");
 });
 
-server.socket.on("message", function(clientMsg, clientHost) {
-  console.log(inspect(sneak(clientMsg)));
+server.socket.on("message", function(clientMsg) {
+  sneak(clientMsg, function(packet) {
+    if(packet.header.sPacketType === 0) {
+      console.log(packet);
+    }
+  });
 });

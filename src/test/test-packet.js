@@ -6,8 +6,12 @@ const fs = require("fs");
 const {sneak} = require(join(__dirname, "../lib/packet"));
 
 describe("packet module", function() {
-  const testBuffer = fs.readFileSync(join(__dirname, "../../asset/packets/packet_0.bin"));
-  const testPacket = sneak(testBuffer);
+  const content = fs.readFileSync(join(__dirname, "../../asset/packets/packet_0.bin"));
+
+  let testPacket;
+  sneak(content, function(tmpPacket) {
+    testPacket = tmpPacket;
+  });
   describe("type-0 packets", function() {
     describe("stage 1 decoding", function() {
       it("should have an sBuildVersion of 1122", function() {
