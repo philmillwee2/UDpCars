@@ -1,8 +1,11 @@
 "use strict";
 
+const {join} = require("path");
+const raceMath = require(join(__dirname, "raceMath"));
+
 let Packet = {
   "0": function(peek, callback) {
-    callback({
+    let packet = {
       header: peek.header,
       data: {
         // Unfiltered input
@@ -27,7 +30,8 @@ let Packet = {
         sFastestSector2Time: peek.payload.readFloatLE(64),
         sFastestSector3Time: peek.payload.readFloatLE(68)
       }
-    });
+    };
+    callback(packet);
   },
   "1": function(peek, callback) {
     callback({ header: peek.header, data: null });
