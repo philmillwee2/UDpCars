@@ -37,7 +37,7 @@ UDP Packets will consist of "packed" data types. This means that a certain level
 2. Lookup packet definition based on type, seen in sneak(peek)
   * [X] Refactor sneak function to use callbacks instead of returns
 3. Decode packet (Stage-1 only) and create data structure
-4. Decode Stage-2 into JSON document
+4. Decode Stage-2 into JSON document (read: elasticsearch client hook)
 
 ## module
 ### Tests
