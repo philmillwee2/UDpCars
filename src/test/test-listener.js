@@ -1,9 +1,8 @@
 "use strict";
 
-const {join} = require("path");
 const {expect} = require("chai");
 const {createSocket} = require("dgram");
-const {createListener} = require(join(__dirname, "../lib/listener"));
+const {createListener} = require("../lib/listener");
 
 describe("listener module", function() {
   describe("socket state", function() {

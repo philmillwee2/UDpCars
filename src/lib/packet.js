@@ -1,8 +1,7 @@
 "use strict";
 
-const {join} = require("path");
 const numeral = require("numeral");
-const {unsignedClamp, signedClamp} = require(join(__dirname, "raceMath"));
+const {unsignedClamp, signedClamp} = require("./raceMath");
 
 function decodeTelemetry(packet, callback) {
   let telemetry = {
