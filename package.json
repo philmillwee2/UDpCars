@@ -1,6 +1,6 @@
 {
   "name": "UDpCars",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "UDP Service for Project Cars built in NodeJS.",
   "author": "Phillip Millwee II",
   "license": "MIT",
@@ -16,6 +16,7 @@
     "chai": "^3.5.0",
     "eslint": "^2.13.1",
     "mocha": "^2.5.3",
-    "numeral": "^1.5.3"
+    "numeral": "^1.5.3",
+    "elasticsearch": "^11.0.1"
   }
 }
