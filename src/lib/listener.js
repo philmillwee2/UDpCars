@@ -15,13 +15,13 @@ function createListener() {
     socket: createSocket("udp4"),
     messageQueue: [],
     packetQueue: [],
-    start: start,
-    stop: stop
+    start,
+    stop
   };
 
   return listener;
 }
 
 module.exports = {
-  createListener: createListener
+  createListener
 };
