@@ -1,8 +1,9 @@
 "use strict";
 
 const {join} = require("path");
-const {createListener} = require(join(__dirname, "src/lib/listener"));
-const {sneak} = require(join(__dirname, "src/lib/packet"));
+const {createListener} = require("./src/lib/listener");
+const {sneak} = require("./src/lib/packet");
+const es = require("./src/lib/elasticsearch");
 
 const server = createListener();
 
@@ -19,7 +20,8 @@ server.start(function() {
 server.socket.on("message", function(clientMsg) {
   sneak(clientMsg, function(packet) {
     if(packet.header.sPacketType === 0) {
-      console.log(packet);
+      es.loadTelemetry(packet, null);
+      console.log(packet.data);
     }
   });
 });

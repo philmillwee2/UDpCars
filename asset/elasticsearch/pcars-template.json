@@ -1,0 +1,46 @@
+PUT /_template/template_1
+{
+  "template": "pcars-*",
+  "settings": {
+    "index": {
+      "refresh_interval": "5s"
+    }
+  },
+  "mappings": {
+    "_default_": {
+      "dynamic_templates": [
+        {
+          "strings": {
+            "match": "*",
+            "match_mapping_type": "string",
+            "mapping":   { "type": "string",  "doc_values": true, "index": "not_analyzed" }
+          }
+        }
+      ],
+      "_all":            { "enabled": true },
+      "_source":         { "enabled": true },
+      "properties": {
+        "date":          { "type": "date"          },
+        "mRaceState":          { "type": "integer" },
+        "mUnfilteredThrottle": { "type": "float"   },
+        "mUnfilteredBrake":    { "type": "float"   },
+        "mUnfilteredSteering": { "type": "float"   },
+        "mUnfilteredClutch":   { "type": "float"   },
+        "mLapsInEvent":        { "type": "integer" },
+        "mLapInvalidated":     { "type": "boolean" },
+        "mBestLapTime":        { "type": "float"   },
+        "mLastLapTime":        { "type": "float"   },
+        "mCurrentTime":        { "type": "float"   },
+        "mEventTimeRemaining": { "type": "float"   },
+        "mCurrentSector1Time": { "type": "float"   },
+        "mCurrentSector2Time": { "type": "float"   },
+        "mCurrentSector3Time": { "type": "float"   },
+        "mFastestSector1Time": { "type": "float"   },
+        "mFastestSector2Time": { "type": "float"   },
+        "mFastestSector3Time": { "type": "float"   },
+        "mAntiLockActive":     { "type": "boolean" },
+        "mBoostActive":        { "type": "boolean" }
+      }
+    }
+  }
+}

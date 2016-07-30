@@ -3,7 +3,7 @@
 const {join} = require("path");
 const {expect} = require("chai");
 const fs = require("fs");
-const {sneak} = require(join(__dirname, "../lib/packet"));
+const {sneak} = require("../lib/packet");
 
 describe("packet module", function() {
   const content = fs.readFileSync(join(__dirname, "../../asset/packets/packet_0.bin"));
